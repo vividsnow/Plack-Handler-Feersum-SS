@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Server::Starter adapter for Plack::Handler::Feersum
+Plack::Handler::Feersum::SS
 
 =head1 SYNOPSIS
 
