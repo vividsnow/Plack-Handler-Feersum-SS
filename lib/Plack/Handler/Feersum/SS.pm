@@ -25,7 +25,11 @@ sub _prepare {
     $self->{listen} = [$port];
     my $f = $self->{endjinn} = Feersum->endjinn;
     $f->use_socket($sock);
-    $self->{pre_fork} = delete $self->{options}{pre_fork} if $self->{options};
+    if (my $opts = $self->{options}) {
+        $self->{$_} = delete $opts->{$_} for grep $opts->{$_}, qw/pre_fork keepalive read_timeout/;
+    }
+    $f->set_keepalive($_) for grep defined && $f->can('set_keepalive'), delete $self->{keepalive};
+    $f->read_timeout($_) for grep $_, delete $self->{read_timeout};
     $self->{server_ready}->({
         qw'server_software Feersum',
         $port =~ m/^(?:(.+?):|)([0-9]+)$/ ? (host => $1//0, port => $2) : (host => 'unix/', port => $port)
