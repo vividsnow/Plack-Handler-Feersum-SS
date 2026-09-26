@@ -1,0 +1,14 @@
+^\.git
+^\.claude/
+^\.vscode/
+^CLAUDE\.md$
+^MANIFEST\.SKIP$
+^MANIFEST\.bak$
+^Makefile$
+^Makefile\.old$
+^MYMETA\.
+^blib/
+^pm_to_blib$
+^Plack-Handler-Feersum-SS-
+^t/\.
+~$

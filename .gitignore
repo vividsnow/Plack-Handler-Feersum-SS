@@ -1,0 +1,10 @@
+.vscode/
+*.tar.gz
+Plack-Handler-Feersum-SS-*/
+Makefile
+Makefile.old
+MYMETA.*
+blib/
+pm_to_blib
+*~
+t/.*
